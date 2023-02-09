@@ -1,3 +1,4 @@
+import { Button, TextField } from "@mui/material";
 import { useState, useContext } from "react";
 import ImageContext from "../contexts/imageContext";
 
@@ -16,18 +17,21 @@ const UrlInput = () => {
   };
 
   return (
-    <form onSubmit={handleImageDownload}>
+    <form onSubmit={handleImageDownload} style={{ margin: ".5rem" }}>
       <label>
-        URL:
-        <input
+        <TextField
+          variant="outlined"
+          size="small"
+          label="Url"
           required
-          placeholder="Paste a URL"
           type="text"
           name="url"
           onChange={(e) => setUrl(e.target.value)}
         />
       </label>
-      <button type="submit">Submit</button>
+      <Button sx={{ marginLeft: ".5rem" }} type="submit">
+        Download
+      </Button>
     </form>
   );
 };
