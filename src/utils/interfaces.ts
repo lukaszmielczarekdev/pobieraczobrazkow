@@ -14,7 +14,7 @@ export interface AllDownloadedImagesProps {
 }
 
 export interface ImagesContext {
-  images: Image[];
+  images: string[];
   allDownloadedImages: AllDownloadedImagesProps;
   onAddDownloadToQueue?: (url: string) => void;
   onGetAllDownloadedImages?: (page: number) => Promise<void>;

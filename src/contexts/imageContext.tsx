@@ -1,14 +1,12 @@
 import { useState, createContext } from "react";
 import async from "async";
 import ImageService from "../services/imageService";
-import {
-  Image,
-  ImagesContext,
-  AllDownloadedImagesProps,
-} from "../utils/interfaces";
+import { ImagesContext, AllDownloadedImagesProps } from "../utils/interfaces";
 
 const INITIAL_STATE: ImagesContext = {
-  images: [],
+  images: localStorage.getItem("images")
+    ? JSON.parse(localStorage.getItem("images") as string)
+    : [],
   allDownloadedImages: { images: [], totalPages: 0, currentPage: 1 },
 };
 
@@ -19,7 +17,11 @@ type Task = {
 };
 
 export const ImageProvider = ({ children }: React.PropsWithChildren) => {
-  const [images, setImages] = useState<Image[]>([]);
+  const [images, setImages] = useState<string[]>(
+    localStorage.getItem("images")
+      ? JSON.parse(localStorage.getItem("images") as string)
+      : []
+  );
   const [allDownloadedImages, setAllDownloadedImages] =
     useState<AllDownloadedImagesProps>({
       images: [],
@@ -28,14 +30,16 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
     });
 
   const handleDownloadImage = async (url: string) => {
-    const downloaded = await ImageService.downloadImage(url);
-    if (downloaded) {
-      setImages((images: Image[]) => [...images, downloaded]);
+    const response = await ImageService.downloadImage(url);
+    if (response?.url) {
+      localStorage.setItem("images", JSON.stringify([...images, response.url]));
+      setImages((images: string[]) => [...images, response.url]);
     }
   };
 
-  const queue = async.queue(async (task: Task) => {
+  const queue = async.queue(async (task: Task, callback) => {
     await handleDownloadImage(task.url);
+    callback?.();
   }, 1);
 
   queue.drain(() => {
@@ -46,8 +50,8 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
     console.log(error);
   });
 
-  const handleAddDownloadToQueue = async (url: string) => {
-    await queue.push({ url });
+  const handleAddDownloadToQueue = (url: string) => {
+    queue.push({ url });
   };
 
   const handleGetAllDownloadedImages = async (page: number) => {

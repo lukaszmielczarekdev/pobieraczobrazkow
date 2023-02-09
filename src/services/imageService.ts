@@ -1,16 +1,19 @@
 import axios, { AxiosError } from "axios";
-import { AllDownloadedImagesProps, Image } from "../utils/interfaces";
+import { AllDownloadedImagesProps } from "../utils/interfaces";
 
 const BASE_URL = "http://localhost:5000/images";
+
+type Url = {
+  url: string;
+};
 
 class ImageService {
   http = axios.create({ baseURL: BASE_URL });
 
   async downloadImage(imageUrl: string) {
     try {
-      const response = await this.http.post<Image>("/add", {
+      const response = await this.http.post<Url>("/add", {
         sourceUrl: imageUrl,
-        addDate: new Date().toLocaleString("en-GB"),
       });
 
       return response.data;

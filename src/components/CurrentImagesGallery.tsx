@@ -1,10 +1,6 @@
 import { useContext } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ImageContext from "../contexts/imageContext";
-import { Image } from "../utils/interfaces";
-import { Box } from "@mui/material";
+import { Box, Link, List, ListItem } from "@mui/material";
 import UrlInput from "./UrlInput";
 
 const CurrentImagesGallery = () => {
@@ -20,27 +16,22 @@ const CurrentImagesGallery = () => {
         paddingBottom: "1rem",
       }}
     >
-      <ImageList>
-        <ImageListItem key="Subheader" cols={2}>
-          <UrlInput />
-        </ImageListItem>
-        {images?.map((image: Image) => (
-          <ImageListItem key={image._id}>
-            <img
-              style={{ borderRadius: "10px" }}
-              src={image.file}
-              srcSet={image.file}
-              alt={"Downloaded"}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              sx={{ borderRadius: "10px" }}
-              title={`Added: ${image.addDate}`}
-              subtitle={`Downloaded: ${image.downloadDate}`}
-            />
-          </ImageListItem>
+      <UrlInput />
+      <List
+        sx={{
+          width: "100%",
+          overflow: "scroll",
+          listStyle: "none",
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        {images?.map((url: string) => (
+          <ListItem key={url} sx={{ width: "fit-content" }}>
+            <Link href={url}>Image</Link>
+          </ListItem>
         ))}
-      </ImageList>
+      </List>
     </Box>
   );
 };
