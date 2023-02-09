@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ImageContext from "../contexts/imageContext";
 import { Image } from "../utils/interfaces";
 
-const ImageGallery = () => {
+const CurrentImagesGallery = () => {
   const { images } = useContext(ImageContext);
   return (
     <div style={{ display: "flex" }}>
@@ -13,4 +13,4 @@ const ImageGallery = () => {
   );
 };
 
-export default ImageGallery;
+export default CurrentImagesGallery;

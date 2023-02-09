@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { Image } from "../utils/interfaces";
+import { AllDownloadedImagesProps, Image } from "../utils/interfaces";
 
 const BASE_URL = "http://localhost:5000/images";
 
@@ -12,7 +12,21 @@ class ImageService {
         sourceUrl: imageUrl,
         addDate: new Date().toLocaleString("en-GB"),
       });
-      console.log(response.data);
+
+      return response.data;
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.log(error.response?.data.message);
+      } else if (typeof error === "string") {
+        console.log(error);
+      }
+    }
+  }
+  async getAllDownloadedImages(page: number) {
+    try {
+      const response = await this.http.get<AllDownloadedImagesProps>(
+        `/get?page=${page}`
+      );
       return response.data;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {

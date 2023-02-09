@@ -7,8 +7,15 @@ export interface Image {
   _id: any;
 }
 
+export interface AllDownloadedImagesProps {
+  images: Image[];
+  totalPages: number;
+  currentPage: number;
+}
+
 export interface ImagesContext {
   images: Image[];
-  downloadQueue: any;
+  allDownloadedImages: AllDownloadedImagesProps;
   onAddDownloadToQueue?: (url: string) => void;
+  onGetAllDownloadedImages?: (page: number) => Promise<void>;
 }

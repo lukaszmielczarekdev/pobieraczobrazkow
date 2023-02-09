@@ -1,6 +1,6 @@
 import "./App.css";
-import DownloadQueue from "./components/DownloadQueue";
-import ImageGallery from "./components/ImageGallery";
+import AllImagesGallery from "./components/AllImagesGallery";
+import CurrentImagesGallery from "./components/CurrentImagesGallery";
 import UrlInput from "./components/UrlInput";
 import { ImageProvider } from "./contexts/imageContext";
 
@@ -9,8 +9,8 @@ function App() {
     <ImageProvider>
       <div className="App">
         <UrlInput />
-        <DownloadQueue />
-        <ImageGallery />
+        <CurrentImagesGallery />
+        <AllImagesGallery />
       </div>
     </ImageProvider>
   );
