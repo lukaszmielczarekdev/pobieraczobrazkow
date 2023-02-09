@@ -1,33 +1,34 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ImageContext from "../contexts/imageContext";
 
 const UrlInput = () => {
   const [url, setUrl] = useState<string | null>("");
+  const { onAddDownloadToQueue } = useContext(ImageContext);
 
-  const handleImageDownload = (e: any) => {
+  const handleImageDownload = async (e: any) => {
     e.preventDefault();
 
     if (url) {
-      alert(`download request: ${url}`);
+      onAddDownloadToQueue?.(url);
     } else {
       alert("Empty input");
     }
   };
 
   return (
-    <section>
-      <p>Paste an image URL:</p>
-      <form onSubmit={handleImageDownload}>
-        <label>
-          URL:
-          <input
-            type="text"
-            name="url"
-            onChange={(e) => setUrl(e.target.value)}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+    <form onSubmit={handleImageDownload}>
+      <label>
+        URL:
+        <input
+          required
+          placeholder="Paste a URL"
+          type="text"
+          name="url"
+          onChange={(e) => setUrl(e.target.value)}
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
