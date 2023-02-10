@@ -39,7 +39,7 @@ const AllImagesGallery = () => {
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        maxHeight: "100vh",
+        maxHeight: "90vh",
         alignSelf: "baseline",
         paddingBottom: "1rem",
       }}
