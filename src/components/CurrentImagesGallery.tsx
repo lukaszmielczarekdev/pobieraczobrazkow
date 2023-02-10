@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import ImageContext from "../contexts/imageContext";
 import { Box, Button, Link, List, ListItem } from "@mui/material";
-import UrlInput from "./UrlInput";
 import ImageInfoModal from "./ImageInfo";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
@@ -25,7 +24,6 @@ const CurrentImagesGallery = () => {
         paddingBottom: "1rem",
       }}
     >
-      <UrlInput />
       <List
         sx={{
           width: "100%",
