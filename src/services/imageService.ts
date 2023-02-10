@@ -1,8 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { AllDownloadedImagesProps, Image } from "../utils/interfaces";
 
-const BASE_URL =
-  "https://pobieraczobrazkow-api-production.up.railway.app/images";
+const BASE_URL = "http://localhost:5000/images";
 
 type Url = {
   url: string;
