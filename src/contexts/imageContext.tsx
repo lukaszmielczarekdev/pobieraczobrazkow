@@ -37,6 +37,13 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
     }
   };
 
+  const handleGetImage = async (id: string) => {
+    const response = await ImageService.getImage(id);
+    if (response) {
+      return response;
+    }
+  };
+
   const queue = async.queue(async (task: Task, callback) => {
     await handleDownloadImage(task.url);
     callback?.();
@@ -73,6 +80,7 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
       value={{
         images,
         allDownloadedImages,
+        onGetImage: handleGetImage,
         onAddDownloadToQueue: handleAddDownloadToQueue,
         onGetAllDownloadedImages: handleGetAllDownloadedImages,
       }}

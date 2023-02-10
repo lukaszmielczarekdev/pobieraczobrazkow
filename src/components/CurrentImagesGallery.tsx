@@ -1,10 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ImageContext from "../contexts/imageContext";
-import { Box, Link, List, ListItem } from "@mui/material";
+import { Box, Button, Link, List, ListItem } from "@mui/material";
 import UrlInput from "./UrlInput";
+import ImageInfoModal from "./ImageInfo";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const CurrentImagesGallery = () => {
   const { images } = useContext(ImageContext);
+  const [currentUrl, setCurrentUrl] = useState<string | null>(null);
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <Box
       sx={{
@@ -27,11 +36,29 @@ const CurrentImagesGallery = () => {
         }}
       >
         {images?.map((url: string) => (
-          <ListItem key={url} sx={{ width: "fit-content" }}>
-            <Link href={url}>Image</Link>
+          <ListItem
+            key={url}
+            sx={{ width: "fit-content", alignItems: "flex-end" }}
+          >
+            <Link href={url}>
+              <VisibilityIcon sx={{ fontSize: "1.5rem" }} />
+            </Link>
+            <Button
+              onClick={() => {
+                setCurrentUrl(url);
+                handleOpen();
+              }}
+            >
+              Info
+            </Button>
           </ListItem>
         ))}
       </List>
+      <ImageInfoModal
+        imageUrl={currentUrl}
+        isOpen={open}
+        handleOpen={handleOpen}
+      />
     </Box>
   );
 };

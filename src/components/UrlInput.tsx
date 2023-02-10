@@ -11,6 +11,7 @@ const UrlInput = () => {
 
     if (url) {
       onAddDownloadToQueue?.(url);
+      e.target.reset();
     } else {
       alert("Empty input");
     }
