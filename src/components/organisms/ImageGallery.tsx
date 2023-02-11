@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import ImageContext from "../../contexts/imageContext";
 import { Box } from "@mui/material";
+import ImageCard from "./ImageCard";
 
 const ImageGallery = () => {
+  const { images } = useContext(ImageContext);
+
   return (
     <Box
       sx={{
@@ -8,9 +13,14 @@ const ImageGallery = () => {
         width: "100%",
         borderRadius: { xs: "none", sm: "25px" },
         flexWrap: "wrap",
-        border: "2px solid white",
+        gap: "2rem",
+        justifyContent: "center",
       }}
-    ></Box>
+    >
+      {images.length > 0
+        ? images.map((image: string) => <ImageCard key={image} url={image} />)
+        : null}
+    </Box>
   );
 };
 

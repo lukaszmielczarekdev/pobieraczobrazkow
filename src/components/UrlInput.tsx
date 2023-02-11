@@ -27,6 +27,7 @@ const UrlInput = () => {
         justifyContent: "center",
         margin: ".5rem",
         width: "100%",
+        mb: 5,
       }}
     >
       <TextField
@@ -41,7 +42,7 @@ const UrlInput = () => {
       />
       <Button
         sx={{
-          mt: ".5rem",
+          mt: "1rem",
           background: "rgba(59,130,246)",
           border: "2px solid white",
           borderRadius: ".5rem",
