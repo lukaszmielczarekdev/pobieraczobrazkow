@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const HeroContainer = ({ children }: React.PropsWithChildren) => {
+const AboutContainer = ({ children }: React.PropsWithChildren) => {
   return (
     <Box
       component={"section"}
@@ -15,10 +15,8 @@ const HeroContainer = ({ children }: React.PropsWithChildren) => {
         gridGap: "2rem",
         marginLeft: "auto",
         marginRight: "auto",
+        margin: "0 auto 1rem auto",
         padding: { xs: "2rem", sm: "4.5rem 2rem", md: "6rem" },
-        borderRadius: { xs: "none", sm: "25px" },
-        background:
-          "linear-gradient(90deg, rgba(253,243,248,1) 0%, rgba(238,242,255,1) 100%)",
       }}
     >
       {children}
@@ -26,4 +24,4 @@ const HeroContainer = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-export default HeroContainer;
+export default AboutContainer;
