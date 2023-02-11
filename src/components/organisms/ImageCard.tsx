@@ -48,7 +48,7 @@ const ImageCard = ({ url }: ImageCardProps) => {
           variant="rectangular"
           sx={{
             width: { xs: "100%", sm: 200 },
-            height: { xs: "100%", sm: 408 },
+            height: 408,
             borderRadius: "10px",
             boxShadow: "0 10px 15px -3px rgba(0,0,0,.1)",
           }}
@@ -64,9 +64,10 @@ const ImageCard = ({ url }: ImageCardProps) => {
           <CardMedia
             component="img"
             sx={{
-              height: { xs: "100%", sm: 200 },
+              height: 200,
               borderRadius: "15px",
               padding: ".5rem",
+              objectFit: imageInfo?.file ? "cover" : "contain",
             }}
             image={imageInfo?.file ? imageInfo.file : Placeholder}
             alt={
@@ -77,7 +78,7 @@ const ImageCard = ({ url }: ImageCardProps) => {
           />
           {imageInfo ? (
             <Box>
-              <CardContent sx={{ display: "flex", flexWrap: "wrap" }}>
+              <CardContent sx={{ display: "block", flexWrap: "wrap" }}>
                 <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                   <SquareIcon bgcolor={"rgb(196 181 253)"}>
                     <AddIcon
@@ -161,7 +162,7 @@ const ImageCard = ({ url }: ImageCardProps) => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: { xs: "100%", sm: 208 },
+                height: 208,
               }}
             >
               <Button startIcon={<SyncIcon />} onClick={handleGetDetails}>
