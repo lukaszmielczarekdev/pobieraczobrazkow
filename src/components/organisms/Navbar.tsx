@@ -1,17 +1,16 @@
 import * as React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { Avatar } from "@mui/material";
-import Logo from "../assets/images/logo.png";
+import { Avatar, Link } from "@mui/material";
+import Logo from "../../assets/images/logo.png";
 
-const pages = ["Community", "About"];
+const pages = ["community", "about"];
 
 const TopNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -33,7 +32,6 @@ const TopNavbar = () => {
       sx={{ background: "white", color: "black" }}
     >
       <Container
-        maxWidth="lg"
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -42,11 +40,12 @@ const TopNavbar = () => {
             xs: ".5rem  1.5rem .5rem 1.5rem",
             md: "0  2rem",
           },
+          maxWidth: { xs: "100%", sm: "80%" },
         }}
       >
         <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
           <Avatar
-            alt="White skeleton picture on a blue background. Picturewave logo."
+            alt="White skeleton picture on a blue background. Imagewave logo."
             src={Logo}
             sx={{
               height: "1.4rem",
@@ -54,22 +53,23 @@ const TopNavbar = () => {
               mr: 1.5,
             }}
           />
-          <Typography
-            variant="h2"
-            noWrap
-            component="a"
-            href="/"
+          <Link
+            onClick={handleCloseNavMenu}
+            component={RouterLink}
+            to={"/"}
             sx={{
               fontSize: "1.2rem",
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontWeight: 500,
-              color: "inherit",
+              flexGrow: 1,
+              fontWeight: 600,
+              color: "black",
               textDecoration: "none",
+              opacity: 0.7,
             }}
           >
-            Picturewave
-          </Typography>
+            Imagewave
+          </Link>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Avatar
@@ -82,23 +82,23 @@ const TopNavbar = () => {
               mr: 1.5,
             }}
           />
-          <Typography
-            variant="h2"
-            noWrap
-            component="a"
-            href=""
+          <Link
+            onClick={handleCloseNavMenu}
+            component={RouterLink}
+            to={"/"}
             sx={{
               fontSize: "1.2rem",
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontWeight: 500,
-              color: "inherit",
+              fontWeight: 600,
+              color: "black",
               textDecoration: "none",
+              opacity: 0.7,
             }}
           >
-            Picturewave
-          </Typography>
+            Imagewave
+          </Link>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -132,27 +132,50 @@ const TopNavbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link
+                    key={page}
+                    component={RouterLink}
+                    to={`/${page}`}
+                    color="inherit"
+                    sx={{
+                      mr: 2,
+                      fontWeight: 600,
+                      fontSize: "1.1rem",
+                      letterSpacing: ".1rem",
+                      color: "inherit",
+                      textDecoration: "none",
+                      textTransform: "capitalize",
+                      opacity: 0.7,
+                    }}
+                  >
+                    {page}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
+              <Link
                 key={page}
                 onClick={handleCloseNavMenu}
+                component={RouterLink}
+                to={`/${page}`}
+                color="inherit"
                 sx={{
-                  my: 1.5,
-                  mx: 0.5,
+                  my: 2.5,
+                  mx: 1.5,
                   color: "black",
                   display: "block",
-                  textTransform: "none",
+                  textTransform: "capitalize",
+                  textDecoration: "none",
                   fontSize: "1.1rem",
+                  fontWeight: 600,
+                  opacity: 0.7,
                 }}
               >
                 {page}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Box>

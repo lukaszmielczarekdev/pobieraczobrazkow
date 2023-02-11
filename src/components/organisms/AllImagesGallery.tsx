@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import ImageContext from "../contexts/imageContext";
-import { Image } from "../utils/interfaces";
+import ImageContext from "../../contexts/imageContext";
+import { Image } from "../../utils/interfaces";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";

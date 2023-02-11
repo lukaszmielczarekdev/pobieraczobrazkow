@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import ImageContext from "../contexts/imageContext";
+import ImageContext from "../../contexts/imageContext";
 
 const UrlInput = () => {
   const [url, setUrl] = useState<string | null>("");

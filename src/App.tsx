@@ -1,8 +1,10 @@
-import { Box } from "@mui/material";
-import TopNavbar from "./components/Navbar";
-import Hero from "./components/pages/Hero";
-import AllImagesGallery from "./components/AllImagesGallery";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { ImageProvider } from "./contexts/imageContext";
+import Community from "./components/pages/Community";
+import About from "./components/pages/About";
+import Hero from "./components/pages/Hero";
+import TopNavbar from "./components/organisms/Navbar";
+import { Box } from "@mui/material";
 import "./App.css";
 
 const App = () => {
@@ -18,10 +20,12 @@ const App = () => {
         }}
       >
         <TopNavbar />
-        <Hero />
-        <Box>
-          <AllImagesGallery />
-        </Box>
+        <Routes>
+          <Route path="/community" element={<Community />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Hero />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </Box>
     </ImageProvider>
   );

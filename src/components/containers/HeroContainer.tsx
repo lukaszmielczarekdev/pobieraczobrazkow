@@ -15,6 +15,7 @@ const HeroContainer = ({ children }: React.PropsWithChildren) => {
         gridGap: "2rem",
         marginLeft: "auto",
         marginRight: "auto",
+        margin: "0 auto 1rem auto",
         padding: { xs: "2rem", sm: "4.5rem 2rem", md: "6rem" },
         borderRadius: { xs: "none", sm: "25px" },
         background:

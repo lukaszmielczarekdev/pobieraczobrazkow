@@ -1,7 +1,7 @@
 import HeroContainer from "../containers/HeroContainer";
 import HeroHeader from "../molecules/HeroHeader";
 import ImageGallery from "../organisms/ImageGallery";
-import UrlInput from "../UrlInput";
+import UrlInput from "../molecules/UrlInput";
 
 const Hero = () => {
   return (
