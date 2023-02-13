@@ -1,6 +1,6 @@
 {
-  "short_name": "Pobieracz Obrazków",
-  "name": "Pobieracz Obrazków",
+  "short_name": "Imagewave",
+  "name": "Imagewave",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
