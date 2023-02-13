@@ -15,6 +15,7 @@ import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import SyncIcon from "@mui/icons-material/Sync";
 import DataRow from "../molecules/DataRow";
 import ImageModal from "../molecules/ImageModal";
+import download from "downloadjs";
 
 const ImageCard = ({ id }: ImageCardProps) => {
   const { onGetImage } = useContext(ImageContext);
@@ -124,6 +125,7 @@ const ImageCard = ({ id }: ImageCardProps) => {
               </CardContent>
               <CardActions>
                 <Button
+                  onClick={() => download(imageInfo?.file, imageInfo._id)}
                   startIcon={<DownloadIcon />}
                   size="small"
                   variant="outlined"

@@ -7,7 +7,9 @@ import StorageIcon from "@mui/icons-material/Storage";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import ThreeSixtyIcon from "@mui/icons-material/ThreeSixty";
+import DownloadIcon from "@mui/icons-material/Download";
 import ImageModal from "./ImageModal";
+import download from "downloadjs";
 
 const FlipCard = ({ image }: ImageProps) => {
   const [flip, setFlip] = useState<boolean>(false);
@@ -36,7 +38,6 @@ const FlipCard = ({ image }: ImageProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          onClick={handleClick}
         >
           <CardContent sx={{ display: "block", flexWrap: "wrap" }}>
             <DataRow bgcolor={"rgb(196 181 253)"} text={image?.addDate}>
@@ -85,6 +86,30 @@ const FlipCard = ({ image }: ImageProps) => {
               />
             </DataRow>
           </CardContent>
+          <DownloadIcon
+            onClick={() => download(image?.file, image._id)}
+            sx={{
+              position: "absolute",
+              bottom: "18px",
+              right: "18px",
+              cursor: "pointer",
+              opacity: 0.7,
+              background: "white",
+              borderRadius: "50%",
+            }}
+          />
+          <ThreeSixtyIcon
+            onClick={handleClick}
+            sx={{
+              position: "absolute",
+              bottom: "18px",
+              left: "17px",
+              cursor: "pointer",
+              opacity: 0.7,
+              background: "white",
+              borderRadius: "50%",
+            }}
+          />
         </ImageListItem>
       ) : (
         <ImageListItem

@@ -16,6 +16,7 @@
     "@types/react-dom": "^18.0.10",
     "async": "^3.2.4",
     "axios": "^1.3.2",
+    "downloadjs": "^1.4.7",
     "framer-motion": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -49,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/async": "^3.2.16"
+    "@types/async": "^3.2.16",
+    "@types/downloadjs": "^1.4.3"
   }
 }
