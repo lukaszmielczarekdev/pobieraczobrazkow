@@ -3,8 +3,8 @@ import { AllDownloadedImagesProps, Image } from "../utils/interfaces";
 
 const BASE_URL = "http://localhost:5000/images";
 
-type Url = {
-  url: string;
+type ImageId = {
+  imageId: string;
 };
 
 class ImageService {
@@ -12,7 +12,7 @@ class ImageService {
 
   async downloadImage(imageUrl: string) {
     try {
-      const response = await this.http.post<Url>("/add", {
+      const response = await this.http.post<ImageId>("/add", {
         sourceUrl: imageUrl,
       });
 

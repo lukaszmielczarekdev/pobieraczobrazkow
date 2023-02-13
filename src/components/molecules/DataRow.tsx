@@ -2,7 +2,15 @@ import SquareIcon from "../atoms/SquareIcon";
 import { Box, Link, Typography } from "@mui/material";
 import { DataRowProps } from "../../utils/types";
 
-const DataRow = ({ children, text, mt, bgcolor, link, href }: DataRowProps) => {
+const DataRow = ({
+  children,
+  text,
+  mt,
+  bgcolor,
+  link,
+  href,
+  onClick,
+}: DataRowProps) => {
   return (
     <Box sx={{ display: "flex", flexWrap: "wrap", mt: mt ? mt : 0 }}>
       <SquareIcon bgcolor={bgcolor}>{children}</SquareIcon>
@@ -15,7 +23,16 @@ const DataRow = ({ children, text, mt, bgcolor, link, href }: DataRowProps) => {
           {text}
         </Link>
       ) : (
-        <Typography sx={{ fontWeight: 600, opacity: 0.7 }}>{text}</Typography>
+        <Typography
+          onClick={onClick}
+          sx={{
+            fontWeight: 600,
+            opacity: 0.7,
+            cursor: onClick ? "pointer" : "normal",
+          }}
+        >
+          {text}
+        </Typography>
       )}
     </Box>
   );

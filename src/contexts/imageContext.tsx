@@ -24,9 +24,12 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
 
   const handleDownloadImage = async (url: string) => {
     const response = await ImageService.downloadImage(url);
-    if (response?.url) {
-      localStorage.setItem("images", JSON.stringify([...images, response.url]));
-      setImages((images: string[]) => [...images, response.url]);
+    if (response?.imageId) {
+      localStorage.setItem(
+        "images",
+        JSON.stringify([...images, response.imageId])
+      );
+      setImages((images: string[]) => [...images, response.imageId]);
     }
   };
 

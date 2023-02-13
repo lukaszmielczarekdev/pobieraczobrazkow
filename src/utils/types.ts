@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { Image } from "./interfaces";
 
 export type PulsatingTextProps = {
@@ -11,7 +12,7 @@ export type StickerProps = {
 };
 
 export type ImageCardProps = {
-  url: string;
+  id: string;
 };
 
 export type SquareIconProps = {
@@ -35,4 +36,11 @@ export type DataRowProps = {
   mt?: string | number;
   text: string;
   children: any;
+  onClick?: MouseEventHandler<HTMLSpanElement>;
+};
+
+export type ModalProps = {
+  image: string | undefined;
+  isOpen: boolean;
+  handleOpen: () => void;
 };

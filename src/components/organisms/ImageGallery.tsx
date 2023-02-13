@@ -18,7 +18,7 @@ const ImageGallery = () => {
       }}
     >
       {images.length > 0
-        ? images.map((image: string) => <ImageCard key={image} url={image} />)
+        ? images.map((id: string) => <ImageCard key={id} id={id} />)
         : null}
     </Box>
   );

@@ -2,8 +2,6 @@ export interface Image {
   addDate: string;
   downloadDate: string;
   sourceUrl: string;
-  databaseUrl: string;
-  backupUrl?: string;
   file: string;
   _id: any;
 }

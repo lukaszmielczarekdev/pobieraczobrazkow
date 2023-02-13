@@ -14,19 +14,23 @@ import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import SyncIcon from "@mui/icons-material/Sync";
 import DataRow from "../molecules/DataRow";
+import ImageModal from "../molecules/ImageModal";
 
-const ImageCard = ({ url }: ImageCardProps) => {
+const ImageCard = ({ id }: ImageCardProps) => {
   const { onGetImage } = useContext(ImageContext);
   const [imageInfo, setImageInfo] = useState<Image | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   const handleGetDetails = () => {
     setLoading(true);
 
     const getImageInfo = async () => {
-      const imageId = url.slice(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
-
-      const response = await onGetImage?.(imageId);
+      const response = await onGetImage?.(id);
       response && setImageInfo(response);
       setLoading(false);
     };
@@ -106,8 +110,7 @@ const ImageCard = ({ url }: ImageCardProps) => {
                   bgcolor={"rgb(196 181 253)"}
                   text={"Backup"}
                   mt={1}
-                  link
-                  href={url ? url : ""}
+                  onClick={handleOpen}
                 >
                   <StorageIcon
                     sx={{
@@ -153,6 +156,11 @@ const ImageCard = ({ url }: ImageCardProps) => {
           )}
         </Card>
       )}
+      <ImageModal
+        image={imageInfo?.file}
+        isOpen={open}
+        handleOpen={handleOpen}
+      />
     </>
   );
 };

@@ -7,9 +7,15 @@ import StorageIcon from "@mui/icons-material/Storage";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import ThreeSixtyIcon from "@mui/icons-material/ThreeSixty";
+import ImageModal from "./ImageModal";
 
 const FlipCard = ({ image }: ImageProps) => {
   const [flip, setFlip] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   const handleClick = () => {
     setFlip(!flip);
@@ -67,8 +73,7 @@ const FlipCard = ({ image }: ImageProps) => {
               bgcolor={"rgb(196 181 253)"}
               text={"Backup"}
               mt={1}
-              link
-              href={image.backupUrl ? image.backupUrl : ""}
+              onClick={handleOpen}
             >
               <StorageIcon
                 sx={{
@@ -104,6 +109,7 @@ const FlipCard = ({ image }: ImageProps) => {
           />
         </ImageListItem>
       )}
+      <ImageModal image={image?.file} isOpen={open} handleOpen={handleOpen} />
     </>
   );
 };
