@@ -3,6 +3,7 @@ export interface Image {
   downloadDate: string;
   sourceUrl: string;
   databaseUrl: string;
+  backupUrl?: string;
   file: string;
   _id: any;
 }
@@ -15,8 +16,9 @@ export interface AllDownloadedImagesProps {
 
 export interface ImagesContext {
   images: string[];
-  allDownloadedImages: AllDownloadedImagesProps;
   onAddDownloadToQueue?: (url: string) => void;
   onGetImage?: (id: string) => Promise<Image | undefined>;
-  onGetAllDownloadedImages?: (page: number) => Promise<void>;
+  onGetAllDownloadedImages?: (
+    page: number
+  ) => Promise<AllDownloadedImagesProps | undefined>;
 }

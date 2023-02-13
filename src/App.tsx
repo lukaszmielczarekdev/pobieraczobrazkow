@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ImageProvider } from "./contexts/imageContext";
-import Community from "./components/pages/Community";
+import Archive from "./components/pages/Archive";
 import About from "./components/pages/About";
 import Hero from "./components/pages/Hero";
 import TopNavbar from "./components/organisms/Navbar";
@@ -21,7 +21,7 @@ const App = () => {
       >
         <TopNavbar />
         <Routes>
-          <Route path="/community" element={<Community />} />
+          <Route path="/archive" element={<Archive />} />
           <Route path="/about" element={<About />} />
           <Route path="/" element={<Hero />} />
           <Route path="*" element={<Navigate to="/" />} />

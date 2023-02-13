@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Avatar, Link } from "@mui/material";
 import Logo from "../../assets/images/logo.png";
 
-const pages = ["community", "about"];
+const pages = ["archive", "about"];
 
 const TopNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
