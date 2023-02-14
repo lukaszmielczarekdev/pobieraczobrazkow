@@ -28,6 +28,7 @@ const Features = () => {
 
   return (
     <Box
+      component={"section"}
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Box
@@ -45,7 +46,7 @@ const Features = () => {
         }}
       >
         {stickers.map((sticker: StickerProps) => (
-          <Sticker fontSize={"1.4rem"} {...sticker} />
+          <Sticker key={sticker.id} fontSize={"1.4rem"} {...sticker} />
         ))}
       </Box>
       <Button

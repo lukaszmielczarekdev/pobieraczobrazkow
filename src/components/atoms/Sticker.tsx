@@ -1,10 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { StickerProps } from "../../utils/types";
 
-const Sticker = ({ id, text, rotate, bgcolor, fontSize }: StickerProps) => {
+const Sticker = ({ text, rotate, bgcolor, fontSize }: StickerProps) => {
   return (
     <Box
-      key={id}
       component={"article"}
       sx={{
         background: bgcolor,
