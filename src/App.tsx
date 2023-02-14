@@ -3,6 +3,7 @@ import { ImageProvider } from "./contexts/imageContext";
 import Archive from "./components/pages/Archive";
 import About from "./components/pages/About";
 import Hero from "./components/pages/Hero";
+import Footer from "./components/organisms/Footer";
 import TopNavbar from "./components/organisms/Navbar";
 import { Box } from "@mui/material";
 import "./App.css";
@@ -15,8 +16,8 @@ const App = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
-          maxHeight: "100vh",
+          justifyContent: "space-between",
+          minHeight: "100vh",
         }}
       >
         <TopNavbar />
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" element={<Hero />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <Footer />
       </Box>
     </ImageProvider>
   );

@@ -70,7 +70,7 @@ const About = () => {
       <Box
         sx={{
           width: { xs: "80%", sm: "60%", md: "60%" },
-          padding: { xs: "2rem 0", sm: "4rem", md: "8rem 4rem 4rem 4rem" },
+          padding: { xs: "2rem 0", sm: "4rem", md: "8rem 4rem 0 4rem" },
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

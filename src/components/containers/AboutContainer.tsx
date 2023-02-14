@@ -16,7 +16,7 @@ const AboutContainer = ({ children }: React.PropsWithChildren) => {
         marginLeft: "auto",
         marginRight: "auto",
         margin: "0 auto 1rem auto",
-        padding: { xs: "2rem", sm: "4.5rem 2rem", md: "6rem" },
+        padding: { xs: "2rem", sm: "4.5rem 2rem", md: "4rem 6rem" },
       }}
     >
       {children}

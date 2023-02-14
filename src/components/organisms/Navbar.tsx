@@ -29,7 +29,7 @@ const TopNavbar = () => {
     <AppBar
       elevation={0}
       position="static"
-      sx={{ background: "white", color: "black" }}
+      sx={{ background: "white", color: "black", paddingBottom: "3rem" }}
     >
       <Container
         sx={{
