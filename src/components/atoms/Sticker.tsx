@@ -1,21 +1,23 @@
 import { Box, Typography } from "@mui/material";
 import { StickerProps } from "../../utils/types";
 
-const Sticker = ({ text, rotate, bgcolor }: StickerProps) => {
+const Sticker = ({ id, text, rotate, bgcolor, fontSize }: StickerProps) => {
   return (
     <Box
+      key={id}
       component={"article"}
       sx={{
         background: bgcolor,
         margin: "1rem",
         padding: { xs: "1rem", sm: "2rem" },
         width: "fit-content",
+        maxWidth: { xs: "100%", sm: "25%" },
         borderRadius: "25px",
         rotate,
       }}
     >
       <Typography
-        sx={{ fontSize: { xs: "1rem", sm: "1rem" }, lineHeight: 1.5 }}
+        sx={{ fontSize: fontSize ? fontSize : "1rem", lineHeight: 1.5 }}
       >
         {text}
       </Typography>

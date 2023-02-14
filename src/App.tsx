@@ -5,6 +5,7 @@ import About from "./components/pages/About";
 import Hero from "./components/pages/Hero";
 import Footer from "./components/organisms/Footer";
 import TopNavbar from "./components/organisms/Navbar";
+import Features from "./components/organisms/Features";
 import { Box } from "@mui/material";
 import "./App.css";
 
@@ -24,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/archive" element={<Archive />} />
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={[<Hero />, <Features />]} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

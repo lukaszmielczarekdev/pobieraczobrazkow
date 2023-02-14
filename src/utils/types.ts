@@ -6,6 +6,8 @@ export type PulsatingTextProps = {
 };
 
 export type StickerProps = {
+  id?: string | number;
+  fontSize?: string | number;
   text: string;
   rotate: string;
   bgcolor: string;
