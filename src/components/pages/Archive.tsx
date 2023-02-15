@@ -19,9 +19,12 @@ const Archive = () => {
           borderRadius: ".5rem",
           color: "white",
           fontWeight: 600,
-          padding: ".5rem 1rem",
+          padding: ".3rem 1rem",
           fontSize: "1rem",
           textTransform: "capitalize",
+          "&:hover": {
+            background: "rgb(245, 115, 165)",
+          },
         }}
       >
         Top

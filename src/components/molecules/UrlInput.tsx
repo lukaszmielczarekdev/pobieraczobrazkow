@@ -43,12 +43,15 @@ const UrlInput = () => {
       <Button
         sx={{
           mt: "1rem",
-          background: "rgba(59,130,246)",
+          background: "rgb(59,130,246)",
           border: "2px solid white",
           borderRadius: ".5rem",
           color: "white",
           fontWeight: 600,
           padding: ".5rem 1rem",
+          "&:hover": {
+            background: "rgb(59, 90, 246)",
+          },
         }}
         type="submit"
       >

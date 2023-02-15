@@ -1,5 +1,6 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Box, Link, List, ListItem, Typography } from "@mui/material";
+import { Avatar, Box, Link, List, ListItem, Typography } from "@mui/material";
+import Logo from "../../assets/images/logo.png";
 
 const Footer = () => {
   return (
@@ -43,8 +44,14 @@ const Footer = () => {
               justifyContent: "center",
               alignItems: "center",
               maxWidth: { xs: "100%", sm: "50%", lg: "30%" },
+              flexDirection: { xs: "column", sm: "row" },
             }}
           >
+            <Avatar
+              alt={"Rounded blue wave. Imagewave logo."}
+              src={Logo}
+              sx={{ margin: "1rem" }}
+            />
             <Typography
               variant="h2"
               sx={{

@@ -8,7 +8,7 @@ const HeroHeader = () => {
       <Typography
         variant="h1"
         sx={{
-          fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+          fontSize: { xs: "2rem", sm: "2.5rem" },
           my: 2,
           fontWeight: 900,
           lineHeight: 1.2,

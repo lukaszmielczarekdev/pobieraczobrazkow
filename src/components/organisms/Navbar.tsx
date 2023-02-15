@@ -45,7 +45,7 @@ const TopNavbar = () => {
       >
         <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
           <Avatar
-            alt="White skeleton picture on a blue background. Imagewave logo."
+            alt="Rounded blue wave. Imagewave logo."
             src={Logo}
             sx={{
               height: "1.4rem",
