@@ -50,6 +50,7 @@ const ImageCard = ({ id }: ImageCardProps) => {
           sx={{
             marginLeft: ".5rem",
             marginRight: ".5rem",
+            maxWidth: 300,
             height: 408,
             borderRadius: "10px",
             boxShadow: "0 10px 15px -3px rgba(0,0,0,.1)",
@@ -60,6 +61,7 @@ const ImageCard = ({ id }: ImageCardProps) => {
           sx={{
             marginLeft: ".5rem",
             marginRight: ".5rem",
+            maxWidth: 300,
             borderRadius: "10px",
             boxShadow: "0 10px 15px -3px rgba(0,0,0,.1)",
           }}
