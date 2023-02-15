@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { CardContent, ImageListItem, ImageListItemBar } from "@mui/material";
 import { ImageProps } from "../../utils/types";
 import DataRow from "./DataRow";
@@ -139,4 +139,4 @@ const FlipCard = ({ image }: ImageProps) => {
   );
 };
 
-export default FlipCard;
+export default memo(FlipCard);

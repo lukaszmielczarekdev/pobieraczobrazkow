@@ -1,11 +1,14 @@
 import { useState, createContext } from "react";
 import async from "async";
 import ImageService from "../services/imageService";
-import { ImagesContext } from "../utils/interfaces";
+import { Image, ImagesContext } from "../utils/interfaces";
 
 const INITIAL_STATE: ImagesContext = {
   images: localStorage.getItem("images")
     ? JSON.parse(localStorage.getItem("images") as string)
+    : [],
+  imagesInfo: localStorage.getItem("imagesInfo")
+    ? JSON.parse(localStorage.getItem("imagesInfo") as string)
     : [],
 };
 
@@ -21,22 +24,32 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
       ? JSON.parse(localStorage.getItem("images") as string)
       : []
   );
+  const [imagesInfo, setImagesInfo] = useState<Image[]>(
+    localStorage.getItem("imagesInfo")
+      ? JSON.parse(localStorage.getItem("imagesInfo") as string)
+      : []
+  );
 
   const handleDownloadImage = async (url: string) => {
     const response = await ImageService.downloadImage(url);
     if (response?.imageId) {
       localStorage.setItem(
         "images",
-        JSON.stringify([...images, response.imageId])
+        JSON.stringify([response.imageId, ...images])
       );
-      setImages((images: string[]) => [...images, response.imageId]);
+      setImages((images: string[]) => [response.imageId, ...images]);
     }
   };
 
   const handleGetImage = async (id: string) => {
     const response = await ImageService.getImage(id);
     if (response) {
-      return response;
+      response._id = id;
+      localStorage.setItem(
+        "imagesInfo",
+        JSON.stringify([...imagesInfo, response])
+      );
+      setImagesInfo((imagesInfo: Image[]) => [...imagesInfo, response]);
     }
   };
 
@@ -68,6 +81,7 @@ export const ImageProvider = ({ children }: React.PropsWithChildren) => {
     <ImageContext.Provider
       value={{
         images,
+        imagesInfo,
         onGetImage: handleGetImage,
         onAddDownloadToQueue: handleAddDownloadToQueue,
         onGetAllDownloadedImages: handleGetAllDownloadedImages,

@@ -25,7 +25,15 @@ const App = () => {
         <Routes>
           <Route path="/archive" element={<Archive />} />
           <Route path="/about" element={<About />} />
-          <Route path="/" element={[<Hero />, <Features />]} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Features />
+              </>
+            }
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

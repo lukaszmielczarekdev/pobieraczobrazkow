@@ -1,11 +1,12 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import ImageContext from "../../contexts/imageContext";
 import { Box } from "@mui/material";
 import ImageCard from "./ImageCard";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import "./carousel.css";
 
-export const chunks = {
+export const breakpoints = {
   0: {
     items: 1,
   },
@@ -34,6 +35,13 @@ export const chunks = {
 
 const ImageGallery = () => {
   const { images } = useContext(ImageContext);
+
+  const items = useMemo(
+    () => (images: string[]) =>
+      images.map((id: string) => <ImageCard key={id} id={id} />),
+    []
+  );
+
   return (
     <Box
       sx={{
@@ -45,11 +53,9 @@ const ImageGallery = () => {
       {images.length > 0 ? (
         <AliceCarousel
           controlsStrategy={"responsive"}
-          responsive={chunks}
+          responsive={breakpoints}
           keyboardNavigation
-          items={images.map((id: string) => (
-            <ImageCard key={id} id={id} />
-          ))}
+          items={items(images)}
         />
       ) : null}
     </Box>

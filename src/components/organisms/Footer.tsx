@@ -101,7 +101,14 @@ const Footer = () => {
               Imagewave
             </Typography>
             <List>
-              <ListItem sx={{ paddingLeft: 0 }}>
+              <ListItem
+                sx={{
+                  paddingLeft: 0,
+                  paddingRight: { xs: 0, sm: "16px" },
+                  paddingBottom: 0,
+                  justifyContent: { xs: "center", sm: "left" },
+                }}
+              >
                 <Link
                   component={RouterLink}
                   to={"/archive"}
@@ -114,12 +121,20 @@ const Footer = () => {
                     color: "inherit",
                     textDecoration: "none",
                     opacity: 0.7,
+                    marginRight: { xs: 0, sm: "16px" },
                   }}
                 >
                   Archive
                 </Link>
               </ListItem>
-              <ListItem sx={{ paddingLeft: 0 }}>
+              <ListItem
+                sx={{
+                  paddingLeft: 0,
+                  paddingRight: { xs: 0, sm: "16px" },
+                  paddingBottom: 0,
+                  justifyContent: { xs: "center", sm: "left" },
+                }}
+              >
                 <Link
                   component={RouterLink}
                   to={"/about"}
@@ -132,6 +147,7 @@ const Footer = () => {
                     color: "inherit",
                     textDecoration: "none",
                     opacity: 0.7,
+                    marginRight: { xs: 0, sm: "16px" },
                   }}
                 >
                   About

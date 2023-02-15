@@ -1,0 +1,27 @@
+.alice-carousel__stage-item * {
+  line-height: 1.5;
+}
+
+.alice-carousel__stage-item {
+  cursor: pointer;
+}
+
+.alice-carousel__prev-btn [data-area]::after {
+  content: "< prev";
+  font-size: 1rem;
+  color: rgb(98, 98, 98);
+}
+
+.alice-carousel__next-btn [data-area]::after {
+  content: "next >";
+  font-size: 1rem;
+  color: rgb(98, 98, 98);
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+  width: 5px;
+  height: 5px;
+}
+.alice-carousel {
+  -webkit-tap-highlight-color: transparent;
+}

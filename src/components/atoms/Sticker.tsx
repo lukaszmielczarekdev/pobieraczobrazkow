@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Box, Typography } from "@mui/material";
 import { StickerProps } from "../../utils/types";
 
@@ -24,4 +25,4 @@ const Sticker = ({ text, rotate, bgcolor, fontSize }: StickerProps) => {
   );
 };
 
-export default Sticker;
+export default memo(Sticker);

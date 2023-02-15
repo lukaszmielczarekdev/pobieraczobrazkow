@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import ImageContext from "../../contexts/imageContext";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -18,7 +18,7 @@ import ImageModal from "../molecules/ImageModal";
 import download from "downloadjs";
 
 const ImageCard = ({ id }: ImageCardProps) => {
-  const { onGetImage } = useContext(ImageContext);
+  const { imagesInfo, onGetImage } = useContext(ImageContext);
   const [imageInfo, setImageInfo] = useState<Image | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
@@ -29,15 +29,18 @@ const ImageCard = ({ id }: ImageCardProps) => {
 
   const handleGetDetails = () => {
     setLoading(true);
-
     const getImageInfo = async () => {
-      const response = await onGetImage?.(id);
-      response && setImageInfo(response);
+      await onGetImage?.(id);
       setLoading(false);
     };
 
     getImageInfo();
   };
+
+  useEffect(() => {
+    const image = imagesInfo.find((image) => image._id === id);
+    image && setImageInfo(image);
+  }, [id, imagesInfo]);
 
   return (
     <>
@@ -45,7 +48,8 @@ const ImageCard = ({ id }: ImageCardProps) => {
         <Skeleton
           variant="rectangular"
           sx={{
-            width: { xs: "100%", sm: 200 },
+            marginLeft: ".5rem",
+            marginRight: ".5rem",
             height: 408,
             borderRadius: "10px",
             boxShadow: "0 10px 15px -3px rgba(0,0,0,.1)",
@@ -54,7 +58,8 @@ const ImageCard = ({ id }: ImageCardProps) => {
       ) : (
         <Card
           sx={{
-            width: { xs: "100%", sm: 200 },
+            marginLeft: ".5rem",
+            marginRight: ".5rem",
             borderRadius: "10px",
             boxShadow: "0 10px 15px -3px rgba(0,0,0,.1)",
           }}
@@ -167,4 +172,4 @@ const ImageCard = ({ id }: ImageCardProps) => {
   );
 };
 
-export default ImageCard;
+export default memo(ImageCard);
