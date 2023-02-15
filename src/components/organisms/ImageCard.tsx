@@ -84,14 +84,26 @@ const ImageCard = ({ id }: ImageCardProps) => {
           {imageInfo ? (
             <Box>
               <CardContent sx={{ display: "block", flexWrap: "wrap" }}>
-                <DataRow bgcolor={"rgb(196 181 253)"} text={imageInfo?.addDate}>
+                <DataRow
+                  bgcolor={"rgb(196 181 253)"}
+                  text={new Date(imageInfo?.addDate).toLocaleString("en-GB", {
+                    dateStyle: "short",
+                    timeStyle: "short",
+                  })}
+                >
                   <AddIcon
                     sx={{ color: "white", stroke: "#ffffff", strokeWidth: 1 }}
                   />
                 </DataRow>
                 <DataRow
                   bgcolor={"rgb(249 168 212)"}
-                  text={imageInfo?.downloadDate}
+                  text={new Date(imageInfo?.downloadDate).toLocaleString(
+                    "en-GB",
+                    {
+                      dateStyle: "short",
+                      timeStyle: "short",
+                    }
+                  )}
                   mt={1}
                 >
                   <FileDownloadDoneIcon

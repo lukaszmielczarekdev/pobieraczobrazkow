@@ -40,14 +40,23 @@ const FlipCard = ({ image }: ImageProps) => {
           }}
         >
           <CardContent sx={{ display: "block", flexWrap: "wrap" }}>
-            <DataRow bgcolor={"rgb(196 181 253)"} text={image?.addDate}>
+            <DataRow
+              bgcolor={"rgb(196 181 253)"}
+              text={new Date(image?.addDate).toLocaleString("en-GB", {
+                dateStyle: "short",
+                timeStyle: "short",
+              })}
+            >
               <AddIcon
                 sx={{ color: "white", stroke: "#ffffff", strokeWidth: 1 }}
               />
             </DataRow>
             <DataRow
               bgcolor={"rgb(249 168 212)"}
-              text={image?.downloadDate}
+              text={new Date(image?.downloadDate).toLocaleString("en-GB", {
+                dateStyle: "short",
+                timeStyle: "short",
+              })}
               mt={1}
             >
               <FileDownloadDoneIcon
