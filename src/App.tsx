@@ -7,7 +7,6 @@ import Footer from "./components/organisms/Footer";
 import TopNavbar from "./components/organisms/Navbar";
 import Features from "./components/organisms/Features";
 import { Box } from "@mui/material";
-import "./App.css";
 
 const App = () => {
   return (
