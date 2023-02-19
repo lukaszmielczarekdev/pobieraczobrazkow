@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { AllDownloadedImagesProps, Image } from "../utils/interfaces";
+import { toast } from "react-hot-toast";
 
 const BASE_URL =
   "https://pobieraczobrazkow-api-production.up.railway.app/images";
@@ -20,7 +21,7 @@ class ImageService {
       return response.data;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
-        console.log(error.response?.data.message);
+        toast.error(error.response?.data.message);
       } else if (typeof error === "string") {
         console.log(error);
       }
@@ -48,7 +49,7 @@ class ImageService {
       return response.data;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
-        console.log(error.response?.data.message);
+        toast.error(error.response?.data.message);
       } else if (typeof error === "string") {
         console.log(error);
       }

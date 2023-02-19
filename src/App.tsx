@@ -6,6 +6,7 @@ import Hero from "./components/pages/Hero";
 import Footer from "./components/organisms/Footer";
 import TopNavbar from "./components/organisms/Navbar";
 import Features from "./components/organisms/Features";
+import { Toaster } from "react-hot-toast";
 import { Box } from "@mui/material";
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
+        <Toaster />
       </Box>
     </ImageProvider>
   );

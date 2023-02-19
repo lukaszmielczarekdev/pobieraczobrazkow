@@ -1,26 +1,33 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import ImageContext from "../../contexts/imageContext";
+import { useForm } from "react-hook-form";
+import debounce from "../../utils/debounce";
 
 const UrlInput = () => {
-  const [url, setUrl] = useState<string | null>("");
   const { onAddDownloadToQueue } = useContext(ImageContext);
 
-  const handleImageDownload = async (e: any) => {
-    e.preventDefault();
+  const {
+    register: registerImageDownload,
+    handleSubmit: handleRegisterImageDownload,
+    reset: resetUrl,
+  } = useForm({
+    defaultValues: {
+      url: null,
+    },
+  });
 
-    if (url) {
-      onAddDownloadToQueue?.(url);
-      e.target.reset();
-    } else {
-      alert("Empty input");
-    }
+  const handleImageDownload = async (data: { url: string | null }) => {
+    const url = data.url?.trim();
+
+    url && onAddDownloadToQueue?.(url);
+    resetUrl();
   };
 
   return (
     <Box
       component={"form"}
-      onSubmit={handleImageDownload}
+      onSubmit={handleRegisterImageDownload(debounce(handleImageDownload, 300))}
       sx={{
         display: "flex",
         flexWrap: "wrap",
@@ -34,11 +41,12 @@ const UrlInput = () => {
         variant="outlined"
         size="small"
         label="Url"
-        required
-        type="url"
-        name="url"
-        onChange={(e) => setUrl(e.target.value)}
         sx={{ width: "100%", background: "rgb(249 250 251)" }}
+        autoFocus
+        {...registerImageDownload("url", {
+          required: true,
+          pattern: /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/,
+        })}
       />
       <Button
         sx={{
