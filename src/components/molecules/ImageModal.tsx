@@ -1,7 +1,7 @@
 import { CardMedia } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { ModalProps } from "../../utils/types";
+import { ModalProps } from "../../utils/interfaces";
 import Placeholder from "../../assets/images/imagePlaceholder.png";
 import { Cancel } from "@mui/icons-material";
 

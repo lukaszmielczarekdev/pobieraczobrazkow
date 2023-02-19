@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import { CardContent, ImageListItem, ImageListItemBar } from "@mui/material";
-import { ImageProps } from "../../utils/types";
+import { ImageProps } from "../../utils/interfaces";
 import DataRow from "./DataRow";
 import AddIcon from "@mui/icons-material/Add";
 import StorageIcon from "@mui/icons-material/Storage";

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { SquareIconProps } from "../../utils/types";
+import { SquareIconProps } from "../../utils/interfaces";
 
 const SquareIcon = ({ bgcolor, children }: SquareIconProps) => {
   return (

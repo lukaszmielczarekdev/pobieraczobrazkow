@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FadeInProps } from "../../utils/types";
+import { FadeInProps } from "../../utils/interfaces";
 
 const FadeIn = ({ children, duration }: FadeInProps) => {
   return (

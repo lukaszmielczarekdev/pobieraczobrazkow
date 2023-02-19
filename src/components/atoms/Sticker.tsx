@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Box, Typography } from "@mui/material";
-import { StickerProps } from "../../utils/types";
+import { StickerProps } from "../../utils/interfaces";
 
 const Sticker = ({ text, rotate, bgcolor, fontSize }: StickerProps) => {
   return (

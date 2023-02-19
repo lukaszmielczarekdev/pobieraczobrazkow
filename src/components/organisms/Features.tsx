@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import Sticker from "../atoms/Sticker";
-import { StickerProps } from "../../utils/types";
+import { StickerProps } from "../../utils/interfaces";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 
 const Features = () => {

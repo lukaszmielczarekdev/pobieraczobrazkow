@@ -1,6 +1,6 @@
 import SquareIcon from "../atoms/SquareIcon";
 import { Box, Link, Typography } from "@mui/material";
-import { DataRowProps } from "../../utils/types";
+import { DataRowProps } from "../../utils/interfaces";
 
 const DataRow = ({
   children,

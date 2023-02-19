@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Box, Button, CardActions, Skeleton } from "@mui/material";
 import Placeholder from "../../assets/images/imagePlaceholder.png";
-import { ImageCardProps } from "../../utils/types";
+import { ImageCardProps } from "../../utils/interfaces";
 import { Image } from "../../utils/interfaces";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
